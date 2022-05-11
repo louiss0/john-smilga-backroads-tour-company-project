@@ -1,12 +1,37 @@
----
 aliases: [vite template notes]
 tags: [HTML, CSS, typescript]
 note type: Main
+
 ---
 
-# Vite Template
+# Backroads Tour Company
 
-This template is a basic html css js template for that uses vite as it's module bundler. It's uses docker to start up the app. There are two folders at the main part of the project. The app folder and the dockerfiles folder. The app folder contains all of the source files for the project. Since docker is a dev environment there are no build docker files at all. In the app folder there is a folder named the src folder It has the files that are necessary. In the docker files folder there is a server docker file and an npm docker file. The main packages so far are `'vite- plugin-pug'` which allows you to inject pug into the html and `'windicss'` along with it's plugin. The package that ties this mpa style app together is called `'vite-plugin-mpa'`.
+This is a project that is a basic tour site. This comes from john smilga's course. This is my implementation of it using vite and windicss.
+
+- The colors used for this project are
+
+  - blue 50-900
+  - slate 50-900
+
+  - white
+
+The config for this project is
+
+```js
+export default defineConfig({
+	theme: {
+		extend: {
+			boxShadow: {
+				"bottom-right-5|15-20": "0 5px 15px hsla(0,0,0,0.2)",
+				"bottom-right-5|15-90": "0 5px 15px hsla(0,0,0,0.9)",
+			},
+			fontFamily: {
+				primary: ["Lato", "sans-serif"],
+			},
+		},
+	},
+});
+```
 
 To start up the server use the following command.
 
@@ -26,20 +51,20 @@ The config file for vite looks like this
 
 ```javascript
 export default defineConfig({
-  server: {
-    host: "0.0.0.0",
+	server: {
+		host: "0.0.0.0",
 
-    port: 3000,
+		port: 3000,
 
-    watch: {
-      usePolling: true,
-    },
-    plugins: [
-      pugPlugin(),
-      WindiCSS(),
-      mpa({ open: false, scanFile: "index.html" }),
-    ],
-  },
+		watch: {
+			usePolling: true,
+		},
+		plugins: [
+			pugPlugin(),
+			WindiCSS(),
+			mpa({ open: false, scanFile: "index.html" }),
+		],
+	},
 });
 ```
 

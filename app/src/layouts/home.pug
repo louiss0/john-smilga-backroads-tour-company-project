@@ -1,6 +1,20 @@
 
-extends ./main.pug
+extends ./main
 
+include ../mixins/base-btn
+
+block header
+    
+    .min-h-screen.bg-blue-500.flex.justify-center.items-center
+        
+        .text-center.text-gray-50.px-12.flex.flex-col.justify-center.items-center
+            
+            h1.text-5xl.uppercase continue exploring
+            
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium facilis exercitationem dolore voluptatem magnam dolor.
+
+            +baseBtn("#featured").
+                explore tours
 
 block main
     .text-gray-500(class="") This is the main

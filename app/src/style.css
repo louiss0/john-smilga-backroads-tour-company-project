@@ -1,9 +1,49 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 
+/** 
+
+  - This is the color scheme
+
+    primary - 1 = blue-900 
+    primary - 2 = blue-800
+    primary - 3 = blue-700
+    primary - 4 = blue-600
+    primary - 5 = blue-500
+    primary - 6 = blue-400
+    primary - 7 = blue-300
+    primary - 8 = blue-200
+    primary - 9 = blue-100
+    primary - 10 = blue-50 
+
+    grey - 1 = slate-900 
+    grey - 2 = slate-800
+    grey - 3 = slate-700
+    grey - 4 = slate-600
+    grey - 5 = slate-500
+    grey - 6 = slate-400
+    grey - 7 = slate-300
+    grey - 8 = slate-200
+    grey - 9 = slate-100
+    grey - 10 = slate-50 
+
+
+*/
+
+
+
+body {
+
+  @apply font-primary bg-gray-50 text-slate-900 leading-normal;
+}
+
+
+ul {
+  @apply list-none;
+}
+
+img {
+  @apply w-full h-full object-cover;
+}
+
+h1,h2,h3,h4{
+  @apply capitalize tracking-wide mb-3
 }
