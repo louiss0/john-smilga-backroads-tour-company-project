@@ -4,6 +4,12 @@ extends ./main
 include ../mixins/base-btn
 include ../mixins/section-title
 include ../mixins/section-center
+include ../mixins/service
+include ../mixins/tour
+
+include ../mixins/wallet-icon
+include ../mixins/tree-icon
+include ../mixins/sock-icon
 
 
 
@@ -16,7 +22,6 @@ block header
     )
         .absolute.top-0.bottom-0.left-0.right-0.z-index-1(
             class="bg-gradient-to-r from-blue-600 md:from-blue-600/60  to-blue-600 md:to-blue-600/60"
-            
         )
 
         .text-center.text-gray-50.px-12(
@@ -40,29 +45,104 @@ block main
         
         +sectionCenter("flex flex-col md:flex-row gap-4 md:justify-between")
             
-            figure(class="md:basis-2/5") 
+            figure.relative(
+                class=`md:basis-2/5 lg:before:content-blank 
+                    lg:before:w-full lg:before:h-full
+                    lg:before:border-3 lg:before:border-blue-500 lg:before:border-solid 
+                    lg:before:-top-6 lg:before:-left-6 lg:before:z-index-1 lg:before:absolute`
+                ) 
             
-                img.relative(
+                img(
                     src="/images/about.jpeg", 
                     alt="awesome beach"
-                    class=`lg:before:content-blank lg:before:border-1
-                    lg:before:w-full lg:before:h-full
-                    lg:before:border-solid lg:before:bg-blue-500
-                    lg:before:top-6 lg:before:left-6 lg:before:absolute
-                    `
+                    class="relative z-index-2"
                     )
             
-            article(class="md:basis-5/10 md:flex flex-col md:justify-center md:items-start md:gap-4")
+            article(
+                class="md:basis-5/10 md:flex flex-col md:justify-center md:items-start md:gap-4"
+                )
                 
                 h3.text-3xl Explore the difference
                 
-                p(class="mb-8 md:mb-0") Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
                 
-                p(class="mb-6 md:mb-0") Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
-
+                div(class="m-8 md:hidden")
+                
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
+                
+                div(class="m-6 md:hidden")
+                
                 +baseBtn("#").
                     read more
 
+    section(
+        aria-labeledby="services" 
+        class="bg-gray-100 p-12"
+        )
+        
+        +sectionTitle("our", "services", "services")
+
+        .mb-8
+
+        +sectionCenter("flex flex-wrap justify-between gap-y-8")
+            
+            +service("saving money")
+                
+                    +walletIcon
+            
+            +service("endless biking")
+                
+                    +treeIcon
+            
+            +service("amazing comfort")
+                
+                    +sockIcon
+
+    section.p-8(aria-labeledby="featured-tours") 
+
+        
+        +sectionTitle("featured", "tours", 'featured-tours')
+
+        .mb-6
+
+        +sectionCenter("md:flex md:justify-between md:flex-wrap lg:max-w-screen-xl")
+
+            +tour(
+                "/images/tour-1.jpeg",
+                "tibet adventure",
+                "august 26th 2022",
+                "china",
+                "6 days",
+                "from $2100",
+            )
+            
+            
+            +tour(
+                "/images/tour-2.jpeg",
+                "Best of Java",
+                "october 11th 2022",
+                "china",
+                "11 days",
+                "from $1400",
+            )
+            
+            +tour(
+                "/images/tour-3.jpeg",
+                "explore hong kong",
+                "september 15th 2022",
+                "hong kong",
+                "8 days",
+                "from $2100",
+            )
+
+            +tour(
+                "/images/tour-4.jpeg",
+                "kenya highlights",
+                "december 5th 2022",
+                "kenya",
+                "20 days",
+                "from $3300",
+            )
 
 
 block footer

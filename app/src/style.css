@@ -47,3 +47,16 @@ img {
 h1,h2,h3,h4{
   @apply capitalize tracking-wide mb-3;
 }
+
+
+
+
+svg{
+  @apply w-full h-full fill-current;
+}
+
+
+
+
+
+
