@@ -2,22 +2,67 @@
 extends ./main
 
 include ../mixins/base-btn
+include ../mixins/section-title
+include ../mixins/section-center
+
+
+
 
 block header
     
-    .min-h-screen.bg-blue-500.flex.justify-center.items-center
-        
-        .text-center.text-gray-50.px-12.flex.flex-col.justify-center.items-center
+    .min-h-screen.flex.justify-center.items-center.relative(
+        class="bg-no-repeat bg-center bg-cover"
+        style="background-image: url('/images/main.jpeg')"
+    )
+        .absolute.top-0.bottom-0.left-0.right-0.z-index-1(
+            class="bg-gradient-to-r from-blue-600 md:from-blue-600/60  to-blue-600 md:to-blue-600/60"
+            
+        )
+
+        .text-center.text-gray-50.px-12(
+            class=" flex flex-col justify-center items-center z-index-2"
+        )
             
             h1.text-5xl.uppercase continue exploring
             
-            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium facilis exercitationem dolore voluptatem magnam dolor.
+            p.mb-3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium facilis exercitationem dolore voluptatem magnam dolor.
 
-            +baseBtn("#featured").
+            +baseBtn("#featured", "py-3 px-5 text-lg bg-gray-50 text-blue-500 hover:bg-transparent hover:bg-gray-50 hover:border-white").
                 explore tours
 
 block main
-    .text-gray-500(class="") This is the main
+
+    section#about.py-20(aria-labeledby="about")
+        
+        +sectionTitle('about', 'us', "about")
+        
+        .mb-8
+        
+        +sectionCenter("flex flex-col md:flex-row gap-4 md:justify-between")
+            
+            figure(class="md:basis-2/5") 
+            
+                img.relative(
+                    src="/images/about.jpeg", 
+                    alt="awesome beach"
+                    class=`lg:before:content-blank lg:before:border-1
+                    lg:before:w-full lg:before:h-full
+                    lg:before:border-solid lg:before:bg-blue-500
+                    lg:before:top-6 lg:before:left-6 lg:before:absolute
+                    `
+                    )
+            
+            article(class="md:basis-5/10 md:flex flex-col md:justify-center md:items-start md:gap-4")
+                
+                h3.text-3xl Explore the difference
+                
+                p(class="mb-8 md:mb-0") Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
+                
+                p(class="mb-6 md:mb-0") Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quasi vel sint sit, ea recusandae officia repellendus dolor incidunt aperiam.
+
+                +baseBtn("#").
+                    read more
+
+
 
 block footer
-    .text-gray-600 This is the footer
