@@ -1,0 +1,9 @@
+mixin sectionCenter(extraClasses="")
+
+    .w-80vw.mx-auto.max-w-screen-lg(class=`md:w-95vw ${extraClasses}`)
+        
+        if block 
+            block
+        else 
+            p.text-red-500 There is no content to display here
+
