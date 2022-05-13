@@ -10,6 +10,7 @@ include ../mixins/tour
 include ../mixins/wallet-icon
 include ../mixins/tree-icon
 include ../mixins/sock-icon
+include ../mixins/search-icon
 
 
 
@@ -45,7 +46,7 @@ block main
         
         +sectionCenter("flex flex-col md:flex-row gap-4 md:justify-between")
             
-            figure.relative(
+            figure(
                 class=`md:basis-2/5 lg:before:content-blank 
                     lg:before:w-full lg:before:h-full
                     lg:before:border-3 lg:before:border-blue-500 lg:before:border-solid 
@@ -98,12 +99,14 @@ block main
                 
                     +sockIcon
 
-    section.p-8(aria-labeledby="featured-tours") 
+    section.p-8(
+        aria-labeledby="featured-tours"
+        class="flex flex-col gap-6 items-center"
+        ) 
 
         
         +sectionTitle("featured", "tours", 'featured-tours')
 
-        .mb-6
 
         +sectionCenter("md:flex md:justify-between md:flex-wrap lg:max-w-screen-xl")
 
@@ -143,6 +146,116 @@ block main
                 "20 days",
                 "from $3300",
             )
+
+
+        +baseBtn("/tours/index.html", )
+            span All tours 
+
+
+    section(aria-label="contact" class="py-8 bg-blue-500")
+        
+
+        +sectionCenter("flex flex-col gap-8 md:flex-row")
+            
+            .text-white 
+                
+                .text-3xl Want the latest info and your updates?
+                
+                    small.text-xl Sign up for letter and newsletter and stay up to date
+            
+            form(action="" class="flex max-w-80 gap-2")
+
+                input(
+                    type="email"
+                    name="email"
+                    class=`flex-1 bg-gray-500 placeholder-inherit py-2 px-3 leading-tight font-light`
+                )
+                
+                button(
+                    type="submit"
+                    class=`py-2 px-3 leading-tight font-light bg-gray-50 
+                        capitalize cursor-pointer
+                        bg-blue-200 text-blue-900
+                        transition duration-200 ease-in-out
+                        hover:bg-blue-900 hover:bg-blue-500 
+                    `
+                ) Submit
+
+    section#gallery(aria-label="gallery")
+        
+        figure(class="flex flex-wrap")
+            
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-1.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-2.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-3.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-4.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-5.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-6.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-1.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
+
+            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+                
+                img(src="/images/tour-2.jpeg", alt=""
+                class="group-hover:opacity-60")
+                
+                a(href="#", class="absolute w-8 h-8 top-1/2 left-1/2 transform text-blue-400 opacity-0 -translate-x-1/2 -translate-y-1/2 transition duration-200 ease-in-out group-hover:opacity-80")
+                    
+                    +searchIcon
 
 
 block footer
