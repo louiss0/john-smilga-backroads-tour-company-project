@@ -50,7 +50,11 @@ navBtn?.addEventListener("click", () => {
 
 // ********** smooth scroll ************
 // select links
-const scrollLinks = document.querySelectorAll(IDsElementsAndClasses.ANCHOR_TAG);
+  
+  if (links && navBtn) {
+
+
+    const scrollLinks = links.querySelectorAll(IDsElementsAndClasses.ANCHOR_TAG);
 
     
     scrollLinks.forEach(link => {
@@ -83,6 +87,14 @@ const scrollLinks = document.querySelectorAll(IDsElementsAndClasses.ANCHOR_TAG);
     
   });
 });
+
+    
+
+  } else {
+
+  console.error("There are no links or nav btn at all")
+
+  }
 
     
 
