@@ -6,19 +6,83 @@ include ../mixins/section-title
 include ../mixins/section-center
 include ../mixins/service
 include ../mixins/tour
+include ../mixins/navbar
 
 include ../mixins/wallet-icon
 include ../mixins/tree-icon
 include ../mixins/sock-icon
 include ../mixins/search-icon
+include ../mixins/bars-icon
+
+include ../mixins/twitter-icon
+include ../mixins/facebook-icon
+include ../mixins/instagram-icon
 
 
 
 
 block header
     
-    .min-h-screen.flex.justify-center.items-center.relative(
-        class="bg-no-repeat bg-center bg-cover"
+    nav.w-full.fixed.bg-gray-50.z-index-3.text-blue-300
+
+        .px-8(
+            class="md:flex lg:justify-between md:w-5/6  max-w-screen-xl  mx-auto"
+        )
+
+            header.flex.justify-between.py-2
+                
+                img(
+                    src="/images/logo.svg", 
+                    alt="backroads logo"
+                    class="basis-2/5 md:basis-3/5 object-contain"
+                    )
+                
+                button#nav-toggle(
+                    type="button",
+                    class=" w-12 h-12 hover:scale-125 active:scale-95 transition transform duration-200 ease-in"
+                    
+                )
+                        +barsIcon
+                
+            
+            ul#nav-links.capitalize(
+                class=`md:flex md:gap-6 hidden`
+            ) 
+                
+                for link in ["home", "about", "services", "featured", "gallery"] 
+                    
+                    li.py-4.px-2.tracking-wide(
+                        class="hover:bg-blue-400 <sm:hover:px-3  hover:text-gray-50  transition duration-300 ease-in"
+                    ) 
+                        
+                        a(href=`#${link}`) #{link}
+
+            
+            footer
+                
+                ul.gap-2.hidden.h-full(class="lg:flex lg:justify-between lg:items-center")
+                
+                    li.w-6.h-6
+                        
+                        a(href="https://www.twitter.com")
+
+                            +twitterIcon
+                
+                    li.w-6.h-6 
+                        
+                        a(href="https://www.instagram.com")
+                            
+                            +instagramIcon
+                    
+                    li.w-6.h-6 
+                    
+                        a(href="https://www.facebook.com")
+                            
+                            +facebookIcon
+                    
+
+    #home.min-h-screen.relative(
+        class="flex justify-center items-center bg-no-repeat bg-center bg-cover"
         style="background-image: url('/images/main.jpeg')"
     )
         .absolute.top-0.bottom-0.left-0.right-0.z-index-1(
@@ -46,7 +110,7 @@ block main
         
         +sectionCenter("flex flex-col md:flex-row gap-4 md:justify-between")
             
-            figure(
+            figure.relative(
                 class=`md:basis-2/5 lg:before:content-blank 
                     lg:before:w-full lg:before:h-full
                     lg:before:border-3 lg:before:border-blue-500 lg:before:border-solid 
@@ -100,12 +164,12 @@ block main
                     +sockIcon
 
     section.p-8(
-        aria-labeledby="featured-tours"
+        aria-labeledby="featured"
         class="flex flex-col gap-6 items-center"
         ) 
 
         
-        +sectionTitle("featured", "tours", 'featured-tours')
+        +sectionTitle("featured", "tours", 'featured')
 
 
         +sectionCenter("md:flex md:justify-between md:flex-wrap lg:max-w-screen-xl")
@@ -185,7 +249,9 @@ block main
         
         figure(class="flex flex-wrap")
             
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-1.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -194,7 +260,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-2.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -203,7 +271,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-3.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -212,7 +282,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-4.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -221,7 +293,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-5.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -230,7 +304,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-6.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -239,7 +315,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-1.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -248,7 +326,9 @@ block main
                     
                     +searchIcon
 
-            .relative(class="shrink-0 basis-1/4 bg-blue-500  group")
+            .relative(
+                class="shrink-0 md:basis-1/2 lg:basis-1/4 bg-blue-500 group"
+                )
                 
                 img(src="/images/tour-2.jpeg", alt=""
                 class="group-hover:opacity-60")
@@ -259,3 +339,41 @@ block main
 
 
 block footer
+
+    
+    .w-full.h-full.bg-blue-900.py-16
+        
+        .flex.flex-col.gap-8.text-gray-100.capitalize(
+            class="w-9/12 mx-auto items-center children:flex"
+        )
+            ul.gap-4 
+                
+                for link in ["home", "about", "services", "featured", "gallery"] 
+                
+                    li 
+                
+                        a(href=`#${link}`) #{link}
+
+            ul.gap-2
+                
+                li.w-6.h-6
+                    
+                    a(href="https://www.twitter.com")
+
+                        +twitterIcon
+                
+                li.w-6.h-6 
+                    
+                    a(href="https://www.instagram.com")
+                        
+                        +instagramIcon
+                
+                li.w-6.h-6 
+                
+                    a(href="https://www.facebook.com")
+                        
+                        +facebookIcon
+
+            small copyright &copy; backroads tour company &nbsp; 
+                
+                time#date 2022 
